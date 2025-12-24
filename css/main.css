@@ -1,0 +1,221 @@
+/* --- BẢNG MÀU MỚI: COFFEE THEME --- */
+:root {
+    --bg-color: #fdfbf7;      /* Màu kem/be nhạt làm nền (như màu sữa) */
+    --card-bg: #ffffff;       /* Màu trắng cho các khối nội dung */
+    --text-main: #4b3621;     /* Màu nâu đậm (Cà phê đen) cho chữ */
+    --text-light: #6f4e37;    /* Màu nâu sữa cho các chữ phụ */
+    --accent-color: #a0522d;  /* Màu nâu cam đất nung (Sienna) cho điểm nhấn */
+    --nav-bg: #3e2723;        /* Màu nâu rất đậm cho thanh menu */
+    --nav-text: #efebe9;      /* Màu trắng ngà cho chữ trên menu */
+    --btn-color: #d84315;     /* Màu cam gạch cho nút mua hàng (nổi bật nhưng không gắt) */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-bottom: 70px; /* Chừa chỗ cho nút sticky */
+}
+
+/* --- HERO BANNER --- */
+#hero {
+    position: relative;
+    height: 50vh; /* Chiều cao vừa phải */
+    /* Ảnh nền: Cà phê buổi sáng */
+    background: url(photo-1495474472287-4d71bcdd2085.jpg) center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(62, 39, 35, 0.4); /* Phủ lớp nâu mờ thay vì đen */
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    color: #fff;
+}
+.hero-content h1 {
+    font-family: 'Playfair Display', serif; /* Font có chân sang trọng */
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+/* --- NAV BAR (Thanh menu giống layout cũ nhưng đổi màu) --- */
+.info-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: var(--nav-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.info-item {
+    padding: 15px 5px;
+    text-align: center;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.3s;
+}
+.info-item:hover { background-color: var(--accent-color); }
+.info-item.highlight {
+    background-color:#b95c40; /* Nút Đặt Hàng nổi bật hơn */
+    font-weight: bold;
+}
+
+/* --- CONTAINER & BLOCKS --- */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.section-block {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(75, 54, 33, 0.08); /* Bóng mờ màu nâu nhẹ */
+    border: 1px solid #efebe9;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* --- PHẦN INTRO & LIST --- */
+.intro-text p { margin-bottom: 15px; text-align: justify; }
+.benefit-list { list-style: none; margin-top: 10px; }
+.benefit-list li { margin-bottom: 10px; }
+.benefit-list i { color: var(--accent-color); margin-right: 8px; }
+
+/* --- PHẦN ẢNH COMBO (Quan trọng) --- */
+.featured-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto 15px;
+    border: 1px solid #ddd;
+}
+.price-box { text-align: center; margin-bottom: 20px; }
+.old-price { text-decoration: line-through; color: #999; margin-right: 10px; font-size: 1.1rem; }
+.new-price { color: var(--btn-color); font-size: 2.2rem; font-weight: 700; font-family: 'Playfair Display', serif;}
+.promo-text { font-style: italic; color: var(--text-light); font-size: 0.9rem; }
+
+/* --- SPECS & STEPS --- */
+.specs-box { background-color: #f9f9f9; padding: 15px; border-radius: 8px; }
+.specs li { list-style: inside square; margin-bottom: 8px; color: var(--text-main); }
+
+.steps-container { display: grid; gap: 15px; }
+.step-card { 
+    display: flex; align-items: flex-start; 
+    background: #fff; padding: 10px; border-radius: 8px; border: 1px solid #eee;
+}
+.step-num {
+    background: var(--nav-bg); color: #fff;
+    width: 25px; height: 25px; border-radius: 50%;
+    text-align: center; line-height: 25px; font-size: 0.8rem;
+    margin-right: 10px; flex-shrink: 0;
+}
+
+/* --- FORM STYLE --- */
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; color: var(--text-main); font-weight: 500; }
+input, select, textarea {
+    width: 100%; padding: 12px;
+    border: 1px solid #ccc; border-radius: 6px;
+    font-family: inherit; background: #fff;
+}
+input:focus, textarea:focus { border-color: var(--accent-color); outline: none; }
+
+.submit-btn {
+    width: 100%; padding: 15px;
+    background-color: var(--nav-bg); /* Nút gửi màu nâu đậm */
+    color: white; border: none; border-radius: 6px;
+    font-size: 1.1rem; font-weight: bold; cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.submit-btn:hover { background-color: var(--accent-color); }
+.error-msg { color: red; font-size: 0.85rem; display: none; margin-top: 5px; }
+
+/* --- STICKY BUTTONS (Thanh tác vụ bên dưới) --- */
+.sticky-actions {
+    position: fixed; bottom: 0; left: 0; width: 100%;
+    display: flex; z-index: 999;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+.btn-action {
+    flex: 1; padding: 10px;
+    text-align: center; color: white;
+    text-decoration: none; font-weight: bold;
+    text-transform: uppercase; font-size: 0.9rem;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.buy-now { background-color: #b95c40; } /* Nút Mua màu cam gạch */
+.messenger { background-color: #0084FF; } /* Nút Mess màu xanh chuẩn */
+
+.footer-sign { text-align: center; padding: 20px; color: #888; font-size: 0.9rem; }
+
+.video-wrapper video {
+    /* width: 100%;*/
+    max-height: 80vh;         
+    max-width: 100%;
+    display: block;    
+    max-height: 500px;
+    height: auto;
+}
+.video-wrapper {
+    line-height: 0;
+    width: fit-content;       
+    max-width: 100%;
+    margin: 20px auto;
+    text-align: center;
+    background: #000;
+    border-radius: 12px; /* Bo tròn góc cho mềm mại */
+    overflow: hidden;  
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);  
+    border: 2px solid var(--accent-color); /* Viền màu nâu cam cho đồng bộ */
+}
+/* .video-note {
+    background-color: var(--bg-color);
+    color: var(--text-light);
+    padding: 10px;
+    font-size: 0.85rem;
+    margin-top: 0;
+} */
+/* Mobile Optimizations */
+@media (max-width: 480px) {
+    .info-item { font-size: 0.75rem; padding: 12px 2px; }
+    h2 { font-size: 1.4rem; }
+    .new-price { font-size: 1.8rem; }
+}
+@media (max-width: 428px) { 
+    .btn-action {
+    flex: 1; padding: 9px;
+    }
+}
+#my-footer {
+    text-align: left;
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
